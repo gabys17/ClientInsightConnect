@@ -28,7 +28,7 @@ function Login() {
       .then((response) => {
         saveToken(response.data.authToken);
         authenticateUser();
-        navigate("/planets");
+        navigate("/HomePage");
       })
       .catch((error) => {
         const errorDescription = error.data.message;
