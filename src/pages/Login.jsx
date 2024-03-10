@@ -28,7 +28,7 @@ function Login() {
       .then((response) => {
         saveToken(response.data.authToken);
         authenticateUser();
-        navigate("/HomePage");
+        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.data.message;

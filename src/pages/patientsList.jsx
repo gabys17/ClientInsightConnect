@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Button from "../components/Button";
 
 /* Import Axios Service */
 import patientsService from "../services/patients.service";
@@ -37,6 +38,12 @@ function PatientsList() {
                   </span>
                 ))}
               </h3>
+              <div>
+                <Button change="red">Delete</Button>
+                <Button change="green">Save</Button>
+                <Button change="blue">Update</Button>
+                <Button change="black">Back</Button>
+              </div>
             </div>
           );
         })}
