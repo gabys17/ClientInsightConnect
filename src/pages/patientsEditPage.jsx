@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-// Import the string from the .env with URL of the API/server - http://localhost:5005
 const API_URL = import.meta.env.VITE_API_URL;
 
 const DEFAULT_PATIENT_FORM_VALUES = {
@@ -11,18 +10,11 @@ const DEFAULT_PATIENT_FORM_VALUES = {
   age: "",
   insurance_number: "",
   national_id_number: "",
-  pathology_history: [],
+  pathology_history: "",
   medication_adherence: "",
   consultation: "",
   treatments_recommendations: "",
   possible_diagnose: "",
-  past_consultations: [
-    {
-      date: "",
-      consultation_info: "",
-      treatments_recommendations: "",
-    },
-  ],
 };
 
 function PatientEditPage() {
@@ -40,16 +32,16 @@ function PatientEditPage() {
     setLoading(true);
 
     axios
-      .put(`${API_URL}/api/patients/${patient._id}`, requestBody)
+      .put(`${API_URL}/patients/patients/${patientId}`, requestBody)
       .then(() => {
-        navigate(`/patients/details/${patient._id}`);
+        navigate(`/patients/${patientId}`);
       })
       .catch((error) => console.log(error));
   };
 
   const handleDelete = () => {
     axios
-      .delete(`${API_URL}/api/patients/${patient._id}`)
+      .delete(`${API_URL}/patients/patients/${patientId}`)
       .then(() => {
         navigate(`/patients`);
       })
@@ -57,29 +49,27 @@ function PatientEditPage() {
   };
 
   const handleChange = (e) => {
-    const { name, value, type, checked, options, multiple } = e.target;
-
-    let inputValue = type === "checkbox" ? checked : value;
-
-    if (multiple && options) {
-      inputValue = [];
-      for (var i = 0, l = options.length; i < l; i++) {
-        if (options[i].selected) {
-          inputValue.push(options[i].value);
-        }
-      }
-    }
+    const { full_name,
+    date_of_birth,
+    age,
+    insurance_number,
+    national_id_number,
+    pathology_history,
+    medication_adherence,
+    consultation,
+    treatments_recommendations,
+    possible_diagnose } = e.target;
 
     setPatient((prevPatient) => ({
       ...prevPatient,
-      [name]: inputValue,
+      [name]: value,
     }));
   };
 
   useEffect(() => {
     const getPatient = () => {
       axios
-        .get(`${API_URL}/api/patients/${patientId}`)
+        .get(`${API_URL}/patients/patients/${patientId}`)
         .then((response) => {
           const patientData = response.data;
           setPatient(patientData);
@@ -122,8 +112,38 @@ function PatientEditPage() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 mt-6 px-4">
-        {/* Add your form fields here */}
+<form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 mt-6 px-4">
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Full Name:</label>
+        <input type="text" name="full_name" value={patient.full_name} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Birth date:</label>
+        <input type="date" name="date_of_birth" value={patient.date_of_birth} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Age:</label>
+        <input type="number" name="age" value={patient.age} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Insurance:</label>
+        <input type="number" name="insurance_number" value={patient.insurance_number} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Id:</label>
+        <input type="text" name="national_id_number" value={patient.national_id_number} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+      
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Pathology History:</label>
+        <textarea type="text" name="pathology_history" value={patient.pathology_history} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Medical Adherence:</label>
+        <input type="text" name="medical_adherence" value={patient.medication_adherence} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Consultation:</label>
+        <input type="text" name="consultation" value={patient.consultation} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Treatments recommendations:</label>
+        <input type="text" name="treatents_recommendations" value={patient.treatents_recommendations} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Possible Diagnose:</label>
+        <input type="text" name="possible_diagnose" value={patient.possible_diagnose} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+
         <button
           disabled={loading}
           type="submit"
