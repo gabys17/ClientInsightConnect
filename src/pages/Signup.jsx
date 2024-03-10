@@ -1,6 +1,6 @@
 /* Import React / React-Router-Dom Features  */
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 /* Import Axios Service */
 import authService from "../services/auth.service";
@@ -83,6 +83,9 @@ function Signup() {
         </div>
         <div>
           <button type="submit">Sign Up</button>
+        </div>
+        <div>
+          <Link to="/login">Already a user ?</Link>
         </div>
         {error && <p>{error}</p>}
       </form>

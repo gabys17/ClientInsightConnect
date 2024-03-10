@@ -14,39 +14,66 @@ function PatientsList() {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleDelete = (patientId) => {
+    const isConfirmed = window.confirm("Are you sure you want to delete this patient?");
+    
+    if (isConfirmed) {
+      patientsService
+        .deletePatient(patientId)
+        .then((response) => {
+          // Handle success, maybe update the state or UI accordingly
+          console.log("Patient deleted successfully");
+          // You might want to fetch the updated patient list here
+        })
+        .catch((error) => console.log(error));
+    }
+  };
+
+  const handleSave = (patientId) => {
+    // Add logic for saving a patient
+    console.log("Save button clicked for patient ID:", patientId);
+  };
+
+  const handleUpdate = (patientId) => {
+    // Add logic for updating a patient
+    console.log("Update button clicked for patient ID:", patientId);
+  };
+
   return (
     <div>
+      <Button change="black">Back</Button>
+
       {patients &&
-        patients.map((patient) => {
-          return (
-            <div key={patient.id} className="patient-container">
-              <h3>{patient.full_name}</h3>
-              <h3>{patient.date_of_birth}</h3>
-              <h3>{patient.age}</h3>
-              <h3>{patient.insurance_number}</h3>
-              <h3>{patient.national_id_number}</h3>
-              <h3>{patient.pathology_history}</h3>
-              <h3>{patient.medication_adherence}</h3>
-              <h3>{patient.consultation}</h3>
-              <h3>{patient.treatments_recommendations}</h3>
-              <h3>{patient.possible_diagnose}</h3>
-              <h3>
+        patients.map((patient) => (
+          <div key={patient.id} className="patient-container">
+            <div className="StudentListPage">
+              <div className="flex justify-between items-center p-2 font-bold border-b">
+                <span style={{ flexBasis: "20%" }}>{patient.full_name}</span>
+                <span style={{ flexBasis: "5%" }}>{patient.date_of_birth}</span>
+                <span style={{ flexBasis: "5%" }}>{patient.age}</span>
+                <span style={{ flexBasis: "5%" }}>{patient.insurance_number}</span>
+                <span style={{ flexBasis: "5%" }}>{patient.national_id_number}</span>
+                <span style={{ flexBasis: "10%" }}>{patient.pathology_history}</span>
+                <span style={{ flexBasis: "10%" }}>{patient.medication_adherence}</span>
+                <span style={{ flexBasis: "10%" }}>{patient.consultation}</span>
+                <span style={{ flexBasis: "10%" }}>{patient.treatments_recommendations}</span>
+                <span style={{ flexBasis: "10%" }}>{patient.possible_diagnose}</span>
+              </div>
+              <span style={{ flexBasis: "30%" }}>
                 {patient.past_consultations.map((consultation, index) => (
                   <span key={index}>
                     {consultation.date} {consultation.consultation_info}{" "}
                     {consultation.treatments_recommendations}
                   </span>
                 ))}
-              </h3>
-              <div>
-                <Button change="red">Delete</Button>
-                <Button change="green">Save</Button>
-                <Button change="blue">Update</Button>
-                <Button change="black">Back</Button>
-              </div>
+              </span>
+              <span style={{ flexBasis: "10%" }}>
+                <Button change="red" onClick={() => handleDelete(patient.id)}>Delete</Button>
+                <Button change="blue" onClick={() => handleUpdate(patient.id)}>Update</Button>
+              </span>
             </div>
-          );
-        })}
+          </div>
+        ))}
     </div>
   );
 }
