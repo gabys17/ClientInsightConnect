@@ -12,6 +12,7 @@
   "dependencies": {
     "@mui/styled-engine-sc": "^6.0.0-alpha.17",
     "axios": "^1.6.7",
+    "date-fns": "^3.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",

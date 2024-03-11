@@ -24,22 +24,22 @@ class PatientsService {
 
   // GET /patients
   getAllPatients = () => {
-    return this.api.get("/patients");
+    return this.api.get("/api/patients");
   };
 
   // GET /patients/:id
   getPatient = (id) => {
-    return this.api.get(`/patients/${id}`);
+    return this.api.get(`/api/patients/${id}`);
   };
 
   // PUT /patients/:id
   updatePatient = (id, requestBody) => {
-    return this.api.put(`/patients/${id}`, requestBody);
+    return this.api.put(`/api/patients/${id}`, requestBody);
   };
 
   // DELETE /patients/:id
   deletePatient = (id) => {
-    return this.api.delete(`/patients/${id}`);
+    return this.api.delete(`/api/patients/${id}`);
   };
 }
 
