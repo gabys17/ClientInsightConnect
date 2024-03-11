@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import patientsService from "../services/patients.service";
+import agendaService from "../services/agenda.service";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
-const DEFAULT_PATIENT_FORM_VALUES = {
-  full_name: "",
-  date_of_birth: "",
-  age: "",
-  insurance_number: "",
+const DEFAULT_AGENDA_FORM_VALUES = {
+  title: "",
+  description: "",
+  owner: "",
+  participants: "",
   national_id_number: "",
   pathology_history: "",
   medication_adherence: "",

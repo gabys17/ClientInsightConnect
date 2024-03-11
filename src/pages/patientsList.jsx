@@ -16,35 +16,16 @@ function PatientsList() {
       .catch((error) => console.log(error));
   }, []);
 
-  const handleDelete = (patientId) => {
-    const isConfirmed = window.confirm("Are you sure you want to delete this patient?");
-    
-    if (isConfirmed) {
-      patientsService
-        .deletePatient(patientId)
-        .then((response) => {
-          // Handle success, maybe update the state or UI accordingly
-          console.log("Patient deleted successfully");
-          // You might want to fetch the updated patient list here
-        })
-        .catch((error) => console.log(error));
-    }
-  };
-
-  const handleSave = (patientId) => {
-    // Add logic for saving a patient
-    console.log("Save button clicked for patient ID:", patientId);
-  };
-
-  const handleUpdate = (patientId) => {
-    // Add logic for updating a patient
-    console.log("Update button clicked for patient ID:", patientId);
-  };
+  
 
   return (
     <div>
       <Link to="/home">
         <Button change="black">Back</Button>
+      </Link>
+      
+      <Link to="/patients/create">
+        <Button change="blue">Add new patient</Button>
       </Link>
   
       {patients &&
