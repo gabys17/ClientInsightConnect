@@ -46,7 +46,7 @@ function AgendaDetails() {
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24 mb-4 border-b pb-4">
               <p className="text-left mb-2 border-b pb-2">
-                <strong>Birth-date:</strong> {agenda.description}
+                <strong>Description:</strong> {agenda.description}
               </p>
               <p className="mb-2 text-left">
                 <strong>Owner:</strong> {agenda.owner}
@@ -57,7 +57,7 @@ function AgendaDetails() {
               <p className="text-left mb-2 border-b pb-2">
                 <strong>When:</strong>
                 <ul>
-                  {agenda.past_consultations.map((event, index) => (
+                  {agenda.when.map((event, index) => (
                     <li key={index}>
                       <strong>End time:</strong> {event.end_time}
                       <strong>Object:</strong> {event.object}
@@ -70,7 +70,7 @@ function AgendaDetails() {
             </div>
             <div className="mt-4">
               <Link to={`/agenda/edit/${id}`}>
-                <Button change="blue">Edit ag</Button>
+                <Button change="blue">Edit agenda</Button>
               </Link>
             </div>
           </>

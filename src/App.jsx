@@ -10,6 +10,7 @@ import PatientCreate from './pages/agendaCreate'
 import AgendaList from './pages/agendaList'
 import AgendaCreate from './pages/agendaCreate'
 import AgendaDetails from './pages/agendaDetails'
+import AgendaEdit from './pages/agendaEditPage'
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
         <Route path="/agenda" element={<AgendaList />}/>
         <Route path="/agenda/:id" element={<AgendaDetails />}/>
         <Route path="/agenda/create" element={<AgendaCreate />}/>
+        <Route path="/agenda/edit/:id" element={<AgendaEdit />}/>
+
       </Routes>
     </div>
   )

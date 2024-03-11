@@ -10,19 +10,19 @@ const DEFAULT_AGENDA_FORM_VALUES = {
   description: "",
   owner: "",
   participants: "",
-  national_id_number: "",
-  pathology_history: "",
-  medication_adherence: "",
-  consultation: "",
-  treatments_recommendations: "",
-  possible_diagnose: "",
+  when: "",
+  end_time: "",
+  object: "",
+  start_time: "",
+  full_day: "",
+  
 };
 
 
 
 
-function PatientEditPage() {
-  const [patient, setPatient] = useState({ ...DEFAULT_PATIENT_FORM_VALUES });
+function AgendaEdit() {
+  const [agenda, setAgenda] = useState({ ...DEFAULT_AGENDA_FORM_VALUES });
   const [loading, setLoading] = useState(true);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
@@ -31,22 +31,22 @@ function PatientEditPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { ...patient };
+    const requestBody = { ...agenda };
 
     setLoading(true);
 
-    patientsService.updatePatient(id, requestBody)
+    agendaService.updateAgenda(id, requestBody)
       .then(() => {
-        navigate(`/patients`);
+        navigate(`/agenda`);
       })
       .catch((error) => console.log(error));
   };
 
   const handleDelete = () => {
     
-      patientsService.deletePatient(id)
+      agendaService.deleteAgenda(id)
       .then(() => {
-        navigate(`/patients`);
+        navigate(`/agenda`);
       })
       .catch((error) => console.log(error));
   };
@@ -54,15 +54,15 @@ function PatientEditPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
   
-    setPatient((prevPatient) => ({
-      ...prevPatient,
+    setAgenda((pevAgenda) => ({
+      ...pevAgenda,
       [name]: value,
     }));
   };
 
   useEffect(() => {
-    patientsService.getPatient(id).then((response)=>{
-      setPatient(response.data);
+    agendaService.getAgenda(id).then((response)=>{
+      setAgenda(response.data);
       setLoading(false);
       console.log(response)
     })
@@ -71,7 +71,7 @@ function PatientEditPage() {
 
   return (
     <div className="p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto bg-white">
-      <h3 className="text-2xl font-semibold text-gray-700 mb-6">Edit Patient</h3>
+      <h3 className="text-2xl font-semibold text-gray-700 mb-6">Edit Agenda</h3>
 
       {showDeleteConfirmation && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
@@ -79,7 +79,7 @@ function PatientEditPage() {
 
           <div className="bg-white w-96 p-6 rounded-lg z-10 shadow-xl relative">
             <p className="text-lg mb-6 text-gray-700 font-semibold">
-              Are you sure you want to delete this patient?
+              Are you sure you want to delete this event?
             </p>
 
             <div className="flex justify-end space-x-4">
@@ -101,36 +101,21 @@ function PatientEditPage() {
       )}
 
 <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 mt-6 px-4">
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Full Name:</label>
-        <input type="text" name="full_name" value={patient.full_name || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Title:</label>
+        <input type="text" name="title" value={agenda.title || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Birth date:</label>
-        <input type="date" name="date_of_birth" value={patient.date_of_birth || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Description:</label>
+        <input type="date" name="description" value={agenda.description || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Age:</label>
-        <input type="number" name="age" value={patient.age || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Owner:</label>
+        <input type="number" name="owner" value={agenda.owner || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Insurance:</label>
-        <input type="number" name="insurance_number" value={patient.insurance_number || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Patient:</label>
+        <input type="number" name="participants" value={agenda.participants || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Id:</label>
-        <input type="text" name="national_id_number" value={patient.national_id_number || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">When:</label>
+        <input type="text" name="national_id_number" value={agenda.national_id_number || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
       
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Pathology History:</label>
-        <textarea type="text" name="pathology_history" value={patient.pathology_history || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Medication Adherence:</label>
-        <textarea type="text" name="medication_adherence" value={patient.medication_adherence || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Consultation:</label>
-        <textarea type="text" name="consultation" value={patient.consultation || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Treatments recommendations:</label>
-        <textarea type="text" name="treatments_recommendations" value={patient.treatments_recommendations || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Possible Diagnose:</label>
-        <textarea type="text" name="possible_diagnose" value={patient.possible_diagnose || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
 
         <Button
           disabled={loading}
@@ -152,4 +137,4 @@ function PatientEditPage() {
   );
 }
 
-export default PatientEditPage;
+export default AgendaEdit;
