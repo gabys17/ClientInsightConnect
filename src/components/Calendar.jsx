@@ -16,30 +16,6 @@ function DemoApp() {
       setEvents(response.data);
       console.log(response.data)
 
-      /* return events.map((agenda) => {
-        
-          return {
-            title: agenda.title,
-            description: agenda.description,
-            owner: agenda.owner,
-            participants: agenda.participants,
-            when: {
-              start_time: agenda.when.start_time,
-              object: agenda.when.object,
-              end_time: agenda.when.end_time,
-            },
-          };
-        } */
-        /* return {
-          title: agenda.title,
-          description: agenda.description,
-          owner: agenda.owner,
-          participants: agenda.participants,
-          when: {
-            object: agenda.when.object,
-            full_day: agenda.when.full_day,
-          },
-        }; */
       } catch (error) {
       console.error("Error fetching agendas:", error);
       return [];
@@ -88,9 +64,11 @@ function DemoApp() {
       <>
         <b>{eventInfo.timeText}</b>
         <i>{eventInfo.event.title}</i>
-        <i>{eventInfo.event.title}</i>
-        <i>{eventInfo.event.title}</i>
-        <i>{eventInfo.event.title}</i>
+        <i>{eventInfo.event.description}</i>
+        <i>{eventInfo.event.owner}</i>
+        <i>{eventInfo.event.participants}</i>
+        <i>{eventInfo.event.start_time}</i>
+        <i>{eventInfo.event.end_time}</i>
       </>
     );
   }
