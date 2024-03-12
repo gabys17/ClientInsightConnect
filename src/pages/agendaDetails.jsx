@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 import Button from "../components/Button";
 import agendaService from "../services/agenda.service";
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
-const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function AgendaDetails() {
   const [agenda, setAgenda] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
-  const getAgenda = () => {
-    axios
-      .get(`${API_URL}/api/agenda/${id}`)
+/*   
+    agendaService.getAgenda(id)
       .then((response) => {
         const oneAgenda = response.data;
         setAgenda(oneAgenda);
         setLoading(false);
       })
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error)); */
+
 
   useEffect(() => {
     agendaService.getAgenda(id).then((response)=>{
@@ -55,17 +52,10 @@ function AgendaDetails() {
                 <strong>Patient:</strong> {agenda.participants}
               </p>
               <p className="text-left mb-2 border-b pb-2">
-                <strong>When:</strong>
-                <ul>
-                  {agenda.when.map((event, index) => (
-                    <li key={index}>
-                      <strong>End time:</strong> {event.end_time}
-                      <strong>Object:</strong> {event.object}
-                      <strong>Start time:</strong> {event.start_time}
-                      <strong>Full day:</strong> {event.full_day}
-                    </li>
-                  ))}
-                </ul>
+                <strong>Start time:</strong> {agenda.start_time}
+              </p>
+              <p className="text-left mb-2 border-b pb-2">
+                <strong>End time:</strong> {agenda.end_time}
               </p>
             </div>
             <div className="mt-4">

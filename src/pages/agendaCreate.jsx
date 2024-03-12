@@ -9,11 +9,8 @@ const DEFAULT_AGENDA_FORM_VALUES = {
   description: "",
   owner: "",
   participants: "",
-  when: "",
   end_time: "",
-  object: "",
   start_time: "",
-  full_day: "",
 };
 
 function AgendaCreate() {
@@ -98,24 +95,33 @@ function AgendaCreate() {
         />
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
-          When:
+          Start Time:
         </label>
         <input
-          type="text"
-          name="when"
-          value={agenda.when || ""}
+          type="date"
+          name="start_time"
+          value={agenda.start_time || ""}
           onChange={handleChange}
           className="border rounded p-2 w-full mb-6"
         />
 
-        
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+          End Time:
+        </label>
+        <input
+          type="date"
+          name="end_time"
+          value={agenda.end_time || ""}
+          onChange={handleChange}
+          className="border rounded p-2 w-full mb-6"
+        />
 
         <Button type="submit" change="green">
           Save
         </Button>
-		<Link to="/home">
-        <Button change="black">Back</Button>
-      </Link>
+        <Link to="/home">
+          <Button change="black">Back</Button>
+        </Link>
       </form>
     </div>
   );

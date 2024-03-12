@@ -3,18 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import agendaService from "../services/agenda.service";
 
-const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const DEFAULT_AGENDA_FORM_VALUES = {
   title: "",
   description: "",
   owner: "",
   participants: "",
-  when: "",
   end_time: "",
-  object: "",
   start_time: "",
-  full_day: "",
   
 };
 
@@ -113,8 +109,11 @@ function AgendaEdit() {
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Patient:</label>
         <input type="number" name="participants" value={agenda.participants || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">When:</label>
-        <input type="text" name="national_id_number" value={agenda.national_id_number || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Start time:</label>
+        <input type="number" name="start_time" value={agenda.start_time || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+
+        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">End time:</label>
+        <input type="number" name="end_time" value={agenda.end_time || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
       
 
         <Button
