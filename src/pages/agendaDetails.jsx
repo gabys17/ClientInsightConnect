@@ -10,14 +10,14 @@ function AgendaDetails() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
-/*   
+  
     agendaService.getAgenda(id)
       .then((response) => {
         const oneAgenda = response.data;
         setAgenda(oneAgenda);
         setLoading(false);
       })
-      .catch((error) => console.log(error)); */
+      .catch((error) => console.log(error));
 
 
   useEffect(() => {

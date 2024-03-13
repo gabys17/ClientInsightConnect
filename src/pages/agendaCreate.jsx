@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Button from "../components/Button";
 /* Import Axios Service */
 import agendaService from "../services/agenda.service";
+import patientService from "../services/patients.service";
+import userService from "../services/user.service";
 
 const DEFAULT_AGENDA_FORM_VALUES = {
   title: "",
@@ -14,16 +16,62 @@ const DEFAULT_AGENDA_FORM_VALUES = {
 };
 
 function AgendaCreate() {
-  const [agenda, setAgenda] = useState({ ...DEFAULT_AGENDA_FORM_VALUES });
+  const [agenda, setAgenda] = useState({
+    ...DEFAULT_AGENDA_FORM_VALUES,
+    participants: [],
+  });
+  // Add a state for storing patients
+  const [patients, setPatients] = useState([]);
+  // Add a state for storing doctors
+  const [doctors, setDoctors] = useState([]);
+
+  // Fetch patients in a useEffect
+  useEffect(() => {
+    patientService.getAllPatients().then((response) => {
+      setPatients(response.data);
+      console.log(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await userService.getAllDoctors();
+        setDoctors(response.data);
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      }
+    };
+
+    fetchDoctors();
+  }, []);
 
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setAgenda((prevAgenda) => ({
-      ...prevAgenda,
-      [name]: value,
-    }));
+    if (name === "participants") {
+      const patient = patients.find((p) => p._id === value);
+
+      if (patient) {
+        const updatedParticipants =
+          value === ""
+            ? []
+            : agenda.participants.includes(value)
+            ? agenda.participants.filter((p) => p !== value)
+            : [...agenda.participants, patient._id];
+
+        setAgenda((prevAgenda) => ({
+          ...prevAgenda,
+          participants: updatedParticipants,
+        }));
+      }
+    } else {
+      setAgenda((prevAgenda) => ({
+        ...prevAgenda,
+        [name]: value,
+      }));
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +84,7 @@ function AgendaCreate() {
       .createAgenda(agenda, requestBody)
       .then((response) => {
         const newAgenda = response.data;
-
+        console.log(response);
         navigate(`/agenda/${newAgenda._id}`);
       })
       .catch((error) => console.log(error));
@@ -65,7 +113,7 @@ function AgendaCreate() {
           Description:
         </label>
         <input
-          type="date"
+          type="text"
           name="description"
           value={agenda.description || ""}
           onChange={handleChange}
@@ -73,32 +121,44 @@ function AgendaCreate() {
         />
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
-          Owner:
+          Doctor:
         </label>
-        <input
-          type="number"
+        <select
           name="owner"
           value={agenda.owner || ""}
           onChange={handleChange}
           className="border rounded p-2 w-full mb-6"
-        />
+        >
+          <option value="">Select a doctor</option>
+          {doctors.map((doctor) => (
+            <option key={doctor._id} value={doctor._id}>
+              {doctor.name}
+            </option>
+          ))}
+        </select>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
           Patient:
         </label>
-        <input
-          type="number"
-          name="participants"
-          value={agenda.participants || ""}
-          onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
-        />
+        <select
+  name="participants"
+  value={agenda.participants.length > 0 ? agenda.participants[agenda.participants.length - 1]._id : ""}
+  onChange={handleChange}
+  className="border rounded p-2 w-full mb-6"
+>
+  <option value="">Select a patient</option>
+  {patients.map((patient) => (
+    <option key={patient._id} value={patient._id}>
+      {patient.full_name}
+    </option>
+  ))}
+</select>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
           Start Time:
         </label>
         <input
-          type="date"
+          type="datetime-local"
           name="start_time"
           value={agenda.start_time || ""}
           onChange={handleChange}
@@ -109,7 +169,7 @@ function AgendaCreate() {
           End Time:
         </label>
         <input
-          type="date"
+          type="datetime-local"
           name="end_time"
           value={agenda.end_time || ""}
           onChange={handleChange}

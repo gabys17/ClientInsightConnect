@@ -101,19 +101,19 @@ function AgendaEdit() {
         <input type="text" name="title" value={agenda.title || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Description:</label>
-        <input type="date" name="description" value={agenda.description || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <input type="text" name="description" value={agenda.description || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Owner:</label>
-        <input type="number" name="owner" value={agenda.owner || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <input type="text" name="owner" value={agenda.owner || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Patient:</label>
-        <input type="number" name="participants" value={agenda.participants || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <input type="text" name="participants" value={agenda.participants || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Start time:</label>
-        <input type="number" name="start_time" value={agenda.start_time || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <input type="datetime-local" name="start_time" value={agenda.start_time || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">End time:</label>
-        <input type="number" name="end_time" value={agenda.end_time || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <input type="datetime-local" name="end_time" value={agenda.end_time || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
       
 
         <Button

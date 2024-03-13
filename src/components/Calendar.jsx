@@ -20,7 +20,10 @@ function DemoApp() {
         description: agenda.description,
         owner: agenda.owner,
         participants: agenda.participants,
-        id: agenda._id // Assuming _id is the unique identifier of the event
+        id: agenda._id, // Assuming _id is the unique identifier of the event
+  extendedProps: {
+    id: agenda._id // Add _id to extendedProps
+  } // Assuming _id is the unique identifier of the event
         // Add other properties as needed
       }));
       setEvents(mappedEvents);
