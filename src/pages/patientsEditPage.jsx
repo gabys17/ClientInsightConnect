@@ -4,7 +4,6 @@ import axios from "axios";
 import Button from "../components/Button";
 import patientsService from "../services/patients.service";
 
-const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const DEFAULT_PATIENT_FORM_VALUES = {
   full_name: "",
@@ -37,7 +36,7 @@ function PatientEditPage() {
     setLoading(true);
 
     axios
-      .put(`${API_URL}/api/patients/${id}`, requestBody)
+      .put(`${import.meta.env.VITE_SERVER_URL}/api/patients/${id}`, requestBody)
       .then(() => {
         navigate(`/api/patients/edit/${id}`);
       })
@@ -46,7 +45,7 @@ function PatientEditPage() {
 
   const handleDelete = () => {
     axios
-      .delete(`${API_URL}/api/patients/${id}`)
+      .delete(`${import.meta.env.VITE_SERVER_URL}/api/patients/${id}`)
       .then(() => {
         navigate(`/api/patients`);
       })
@@ -66,7 +65,6 @@ function PatientEditPage() {
     patientsService.getPatient(id).then((response)=>{
       setPatient(response.data);
       setLoading(false);
-      console.log(response)
     })
   }, [id]);
 

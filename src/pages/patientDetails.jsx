@@ -5,7 +5,6 @@ import Button from "../components/Button";
 import patientsService from "../services/patients.service";
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
-const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function PatientDetails() {
   const [patient, setPatient] = useState(null);
@@ -14,7 +13,7 @@ function PatientDetails() {
 
   const getPatient = () => {
     axios
-      .get(`${API_URL}/api/patients/${id}`)
+      .get(`${import.meta.env.VITE_SERVER_URL}/api/patients/${id}`)
       .then((response) => {
         const onePatient = response.data;
         setPatient(onePatient);
@@ -27,7 +26,6 @@ function PatientDetails() {
     patientsService.getPatient(id).then((response)=>{
       setPatient(response.data);
       setLoading(false);
-      console.log(response)
     })
   }, [id]);
 

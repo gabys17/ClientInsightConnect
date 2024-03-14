@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 class PatientsDetailsService {
   constructor() {
@@ -16,6 +16,8 @@ class PatientsDetailsService {
       return config;
     });
   }
+
+  
 
   // POST /api/patients
   createPatient = (requestBody) => {
@@ -47,3 +49,4 @@ class PatientsDetailsService {
 const patientsService = new PatientsDetailsService();
 
 export default patientsService;
+ */

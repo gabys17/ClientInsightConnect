@@ -31,7 +31,7 @@ function Login() {
         navigate("/home");
       })
       .catch((error) => {
-        const errorDescription = error.data.message;
+        const errorDescription = error.message;
         setError(errorDescription);
       });
   };
