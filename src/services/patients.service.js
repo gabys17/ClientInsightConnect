@@ -19,27 +19,27 @@ class PatientsService {
 
   // POST /api/patients
   createPatient = (requestBody) => {
-    return this.api.post("/patients", requestBody);
+    return this.api.post("/patient", requestBody);
   };
 
   // GET /patients
   getAllPatients = () => {
-    return this.api.get("/patients");
+    return this.api.get("/patient");
   };
 
   // GET /patients/:id
   getPatient = (id) => {
-    return this.api.get(`/patients/${id}`);
+    return this.api.get(`/patient/${id}`);
   };
 
   // PUT /patients/:id
   updatePatient = (id, requestBody) => {
-    return this.api.put(`/patients/${id}`, requestBody);
+    return this.api.put(`/patient/${id}`, requestBody);
   };
 
   // DELETE /patients/:id
   deletePatient = (id) => {
-    return this.api.delete(`/patients/${id}`);
+    return this.api.delete(`/patient/${id}`);
   };
 }
 
