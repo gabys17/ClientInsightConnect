@@ -31,8 +31,8 @@ function PatientsList() {
       {patients &&
         patients.map((patient) => (
           <div className="patient-container" key={patient.id}>
-            <div className="StudentListPage">
-              <div className="flex justify-between items-center p-2 font-bold border-b" >
+            <div>
+              <div className="patient-info" >
                 <Link  to={`/patients/${patient._id}`}>
                   <span style={{ flexBasis: "20%" }}>{patient.full_name}</span>
                 </Link>

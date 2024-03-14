@@ -11,6 +11,8 @@ import AgendaList from './pages/agendaList'
 import AgendaCreate from './pages/agendaCreate'
 import AgendaDetails from './pages/agendaDetails'
 import AgendaEdit from './pages/AgendaEditPage'
+import Footer from './components/Footer'
+import Error from './pages/Error'
 
 
 function App() {
@@ -29,8 +31,10 @@ function App() {
         <Route path="/agenda/:id" element={<AgendaDetails />} />
         <Route path="/agenda/create" element={<AgendaCreate />} />
         <Route path="/agenda/edit/:id" element={<AgendaEdit />} />
-
+        <Route path="/about" />
+        <Route path="*" element = {<Error />}/>
       </Routes>
+      <Footer/>
     </div>
   )
 }

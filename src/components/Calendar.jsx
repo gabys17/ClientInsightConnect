@@ -68,14 +68,13 @@ function DemoApp() {
 
 // Custom render function for event content
 function renderEventContent(eventInfo) {
-  const { title, owner, participants } = eventInfo.event.extendedProps;
+  const { title, participants } = eventInfo.event.extendedProps;
 
   return (
     <>
       <b>{eventInfo.timeText}</b>
       <i>{title}</i>
-      <i>{owner}</i>
-      <i>{participants}</i>
+      <i>{participants.full_name}</i>
     </>
   );
 }
