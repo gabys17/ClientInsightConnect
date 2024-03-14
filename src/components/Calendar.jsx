@@ -17,13 +17,12 @@ function DemoApp() {
         title: agenda.title,
         start: new Date(agenda.start_time), // Assuming start_time is in ISO format
         end: new Date(agenda.end_time), // Assuming end_time is in ISO format
-        description: agenda.description,
         owner: agenda.owner,
         participants: agenda.participants,
         id: agenda._id, // Assuming _id is the unique identifier of the event
-  extendedProps: {
-    id: agenda._id // Add _id to extendedProps
-  } // Assuming _id is the unique identifier of the event
+        extendedProps: {
+          id: agenda._id // Add _id to extendedProps
+        } // Assuming _id is the unique identifier of the event
         // Add other properties as needed
       }));
       setEvents(mappedEvents);
@@ -69,13 +68,12 @@ function DemoApp() {
 
 // Custom render function for event content
 function renderEventContent(eventInfo) {
-  const { title, description, owner, participants } = eventInfo.event.extendedProps;
+  const { title, owner, participants } = eventInfo.event.extendedProps;
 
   return (
     <>
       <b>{eventInfo.timeText}</b>
       <i>{title}</i>
-      <i>{description}</i>
       <i>{owner}</i>
       <i>{participants}</i>
     </>
