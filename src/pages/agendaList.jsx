@@ -6,7 +6,7 @@ function AgendaList() {
   return (
     <div>
       <Link to="/home">
-        <Button change="black">Back</Button>
+        <Button className="agendaList-btn" change="black">Back</Button>
       </Link>
       <div>
         <Calendar />

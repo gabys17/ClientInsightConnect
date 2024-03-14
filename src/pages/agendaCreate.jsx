@@ -84,13 +84,13 @@ function AgendaCreate() {
       });
   };
   return (
-    <div className="AgendaCreate p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto">
-      <div className="flex justify-center bg-white items-center mb-4 pt-8 absolute top-0 left-0 right-0 py-2 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 border-b border-gray-300 shadow-sm"></div>
+    <div className="container">
+      <h1>Create Event</h1>
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 gap-4 mt-6 px-4"
+        className="form-container"
       >
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Title:
         </label>
         <input
@@ -98,9 +98,9 @@ function AgendaCreate() {
           name="title"
           value={agenda.title || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form"
         />
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Description:
         </label>
         <input
@@ -108,16 +108,16 @@ function AgendaCreate() {
           name="description"
           value={agenda.description || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form"
         />
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Doctor:
         </label>
         <select
           name="owner"
           value={agenda.owner || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="select-form"
         >
           <option value="">Select a doctor</option>
           {doctors.map((doctor) => (
@@ -126,14 +126,14 @@ function AgendaCreate() {
             </option>
           ))}
         </select>
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Patient:
         </label>
         <select
           name="participants"
           value={agenda.participants.length > 0 ? agenda.participants[agenda.participants.length - 1]._id : ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="select-form"
         >
           <option value="">Select a patient</option>
           {patients.map((patient) => (
@@ -142,32 +142,34 @@ function AgendaCreate() {
             </option>
           ))}
         </select>
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
-          Start Time:
-        </label>
-        <input
-          type="datetime-local"
-          name="start_time"
-          value={agenda.start_time || ""}
-          onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
-        />
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
-          End Time:
-        </label>
-        <input
-          type="datetime-local"
-          name="end_time"
-          value={agenda.end_time || ""}
-          onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
-        />
-        <Button type="submit" change="green">
+        <div className="secondRow-form">
+          <label className="label-form">
+            Start Time:
+          </label>
+          <input
+            type="datetime-local"
+            name="start_time"
+            value={agenda.start_time || ""}
+            onChange={handleChange}
+            className="input-form"
+          />
+          <label className="label-form">
+            End Time:
+          </label>
+          <input
+            type="datetime-local"
+            name="end_time"
+            value={agenda.end_time || ""}
+            onChange={handleChange}
+            className="input-form"
+          />
+          <Button className="agendaCreate-btn" type="submit" change="green">
           Save
         </Button>
         <Link to="/home">
           <Button change="black">Back</Button>
         </Link>
+        </div>
       </form>
     </div>
   );

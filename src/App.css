@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer-container{
   display: flex;
   flex-direction: row;
@@ -19,8 +26,9 @@
   margin: 20px;
   align-items: center;
   justify-content: center;
+  bottom: 0;
 }
-.footer img{
+.footer svg{
   margin-right: 10px;
 }
 
@@ -43,4 +51,101 @@
     align-items: center;
     margin: 20px;
     border-radius: 8px;
+}
+
+.card-body h2{
+  text-decoration: none;
+}
+
+.text-about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.about{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.picture{
+  display: flex;
+  flex-direction: row;
+  align-items: column;
+  margin: 10px;
+ 
+}
+
+.picture img{
+  width: 200px;
+  height: 250px;
+}
+
+.container-text{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+ .container-text svg{
+  padding: 5px;
+}
+
+
+.form-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.label-form{
+  margin-right: 5px;
+}
+
+.input-form{
+  margin-right: 5px;
+  margin-left: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+select{
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+option{
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.secondRow-form{
+  margin-top: 10px;
+}
+
+.agendaCreate-btn {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.agendaList-btn{
+  margin-left: 1089px;
 }

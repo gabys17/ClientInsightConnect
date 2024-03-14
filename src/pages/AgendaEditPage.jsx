@@ -91,8 +91,8 @@ function AgendaEdit() {
     });
   }, [id]);
   return (
-    <div className="p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto bg-white">
-      <h3 className="text-2xl font-semibold text-gray-700 mb-6">Edit Agenda</h3>
+    <div className="container">
+      <h1>Edit Appointment</h1>
       {showDeleteConfirmation && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
           <div className="bg-black opacity-50 absolute w-full h-full"></div>

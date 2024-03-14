@@ -1,28 +1,36 @@
-import leonardo from "../assets/images/leonardoOliveira"
-import gabriela from "../assets/images/gabrielaSilva.jpeg"
+/*import leonardo from "../assets/images/leonardoOliveira"*/
+import gabriela from "../assets/WhatsApp Image 2024-03-14 at 21.10.54.jpeg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 function About () {
 
     return (
         
         <section className="about">
-            <h4>This website helps clinics, hospitals and doctors to manage their patients.</h4>
-            <div>
-                <p>Made By:</p>
+			<div className="text-about"><h4>We developed this website! Visit us on linkedin and github to get to know us better.</h4></div>
+            
+            
+			<div className="picture">
+				<img src="
+				" alt="" />
+				<div className="container-text">
+					<p><b>Leonardo Oliveira</b></p>
+					<FontAwesomeIcon icon={faGithub} ><a href="https://github.com/lmcoliveira99"></a></FontAwesomeIcon>
+					
+					<FontAwesomeIcon icon={faLinkedin} ><a href="https://www.linkedin.com/in/lmcoliveira/"></a></FontAwesomeIcon>
+				</div>
             </div>
-            <div className="pictureleonardo">
-                <img src={leonardo}></img>
-                <p><b>Leonardo Oliveira</b></p>
-				<a href="https://github.com/lmcoliveira99"><img src="../assets/github-logo.png" alt="github" /></a>
-				<a href="https://www.linkedin.com/in/lmcoliveira/"><img src="../assets/linkedin.png" alt="linkedin" /></a>
+            <div className="picture">
+                <img src={gabriela} alt=""></img>
+				<div className="container-text">
+					<p><b>Gabriela Silva</b></p>
+					<FontAwesomeIcon icon={faGithub} ><a href="https://github.com/gabys17"></a></FontAwesomeIcon>
+					
+					<FontAwesomeIcon icon={faLinkedin} ><a href="https://www.linkedin.com/in/gabrielavieira-da--silva/"></a></FontAwesomeIcon>
+				</div>
             </div>
-            <div className="picturediana">
-                <img src={gabriela}></img>
-                <p><b>Gabriela Silva</b></p>
-				<a href="https://github.com/gabys17"><img src="../assets/github-logo.png" alt="github" /></a>
-				<a href="https://www.linkedin.com/in/gabrielavieira-da--silva/"><img src="../assets/linkedin.png" alt="linkedin" /></a>
-            </div>
-        </section>
+        </section>  
         
     )
 }
