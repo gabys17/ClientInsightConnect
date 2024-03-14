@@ -19,10 +19,10 @@ class AgendaService {
 
   // POST /api/agenda
   createAgenda = (requestBody) => {
-    return this.api.post("/", requestBody);
+    return this.api.post("/agenda", requestBody);
   };
 
-  // GET /agendas
+  // GET /agenda
   getAllAgendas = () => {
     return this.api.get("/agenda");
   };

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import Button from "../components/Button";
 import patientsService from "../services/patients.service";
 
@@ -35,19 +34,18 @@ function PatientEditPage() {
 
     setLoading(true);
 
-    axios
-      .put(`${import.meta.env.VITE_SERVER_URL}/api/patients/${id}`, requestBody)
+    patientsService.updatePatient(id, requestBody)
       .then(() => {
-        navigate(`/api/patients/edit/${id}`);
+        navigate(`/patients`);
       })
       .catch((error) => console.log(error));
   };
 
   const handleDelete = () => {
-    axios
-      .delete(`${import.meta.env.VITE_SERVER_URL}/api/patients/${id}`)
+    
+      patientsService.deletePatient(id)
       .then(() => {
-        navigate(`/api/patients`);
+        navigate(`/patients`);
       })
       .catch((error) => console.log(error));
   };
@@ -126,7 +124,7 @@ function PatientEditPage() {
         <textarea type="text" name="consultation" value={patient.consultation || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Treatments recommendations:</label>
-        <textarea type="text" name="treatents_recommendations" value={patient.treatents_recommendations || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <textarea type="text" name="treatments_recommendations" value={patient.treatments_recommendations || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
 
         <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Possible Diagnose:</label>
         <textarea type="text" name="possible_diagnose" value={patient.possible_diagnose || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>

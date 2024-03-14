@@ -16,11 +16,16 @@ function PatientsList() {
       .catch((error) => console.log(error));
   }, []);
 
+  
 
   return (
     <div>
       <Link to="/home">
         <Button change="black">Back</Button>
+      </Link>
+      
+      <Link to="/patients/create">
+        <Button change="blue">Add new patient</Button>
       </Link>
   
       {patients &&
