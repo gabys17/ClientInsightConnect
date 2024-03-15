@@ -3,10 +3,14 @@ import Patient from "../assets/patient.png"
 import Calendar from "../assets/timetable.png"
 import Todo from "../assets/to-do-list.png"
 import Mood from "../assets/mood.png"
+import Sidebar from "../components/Sidebar";
 
 function HomePage() {
   return (
+	
     <div className="home-container">
+      <Sidebar />
+
 		<div>
 		<Link to="/patients">
 			<div className="container-card">

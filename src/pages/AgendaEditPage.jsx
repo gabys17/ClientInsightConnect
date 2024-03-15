@@ -4,6 +4,8 @@ import Button from "../components/Button";
 import agendaService from "../services/agenda.service";
 import patientService from "../services/patients.service";
 import userService from "../services/user.service";
+import Sidebar from "../components/Sidebar";
+
 const DEFAULT_AGENDA_FORM_VALUES = {
   title: "",
   description: "",
@@ -92,6 +94,8 @@ function AgendaEdit() {
   }, [id]);
   return (
     <div className="container">
+      <Sidebar />
+
       <h1>Edit Appointment</h1>
       {showDeleteConfirmation && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">

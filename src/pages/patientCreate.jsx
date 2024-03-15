@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Button from "../components/Button";
 /* Import Axios Service */
 import patientsService from "../services/patients.service";
+import Sidebar from "../components/Sidebar";
 
 const DEFAULT_PATIENT_FORM_VALUES = {
   full_name: "",
@@ -48,6 +49,8 @@ function PatientsCreate() {
 
   return (
     <div className="container">
+      <Sidebar />
+
       <h1>Add Patient</h1>
 
       <form onSubmit={handleSubmit} className="form-container">

@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "../components/Button";
 import patientsService from "../services/patients.service";
+import Sidebar from "../components/Sidebar";
+
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
 
@@ -33,6 +35,8 @@ function PatientDetails() {
 
   return (
     <div className="patientDetailsPage bg-gray-100 py-6 px-4">
+      <Sidebar />
+
       <Link to="/patients">
         <Button change="black">Back</Button>
       </Link>

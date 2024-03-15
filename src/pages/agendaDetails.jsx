@@ -4,6 +4,8 @@ import Button from "../components/Button";
 import agendaService from "../services/agenda.service";
 import userService from "../services/user.service";
 import patientService from "../services/patients.service";
+import Sidebar from "../components/Sidebar";
+
 function AgendaDetails() {
   const [agenda, setAgenda] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -39,7 +41,9 @@ function AgendaDetails() {
     return participantObject ? participantObject.full_name : "Unknown";
   });
   return (
-    <div className="agendaDetailsPage bg-gray-100 py-6 px-4">
+    <div 
+    <Sidebar />
+    className="agendaDetailsPage bg-gray-100 py-6 px-4">
       <Link to="/agenda">
         <Button change="black">Back</Button>
       </Link>

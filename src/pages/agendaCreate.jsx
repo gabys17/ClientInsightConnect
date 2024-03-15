@@ -5,6 +5,8 @@ import Button from "../components/Button";
 import agendaService from "../services/agenda.service";
 import patientService from "../services/patients.service";
 import userService from "../services/user.service";
+import Sidebar from "../components/Sidebar";
+
 const DEFAULT_AGENDA_FORM_VALUES = {
   title: "",
   description: "",
@@ -85,6 +87,8 @@ function AgendaCreate() {
   };
   return (
     <div className="container">
+      <Sidebar />
+
       <h1>Create Event</h1>
       <form
         onSubmit={handleSubmit}

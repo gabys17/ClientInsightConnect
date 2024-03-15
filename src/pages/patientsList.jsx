@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-
+import Sidebar from "../components/Sidebar";
 
 /* Import Axios Service */
 import patientsService from "../services/patients.service";
@@ -20,6 +20,8 @@ function PatientsList() {
 
   return (
     <div className="container">
+      <Sidebar />
+
       <Link to="/home">
         <Button change="black">Back</Button>
       </Link>

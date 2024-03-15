@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import patientsService from "../services/patients.service";
+import Sidebar from "../components/Sidebar";
 
 
 const DEFAULT_PATIENT_FORM_VALUES = {
@@ -70,6 +71,7 @@ function PatientEditPage() {
   return (
     <div className="container">
       <h1>Edit Patient</h1>
+      <Sidebar />
 
       {showDeleteConfirmation && (
           <div className="bg-white w-96 p-6 rounded-lg z-10 shadow-xl relative">
