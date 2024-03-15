@@ -473,7 +473,7 @@ option{
   margin: 5px;
 }
 
-.size-prescription img{
+#size-prescription img{
   width: 100px;
   height: 100px;
 }
