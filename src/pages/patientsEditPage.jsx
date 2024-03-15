@@ -122,8 +122,8 @@ function PatientEditPage() {
         value={patient.pathology_history || ""} onChange={handleChange} className="input-form textArea-size-md"/>
 
         <label className="label-form">Medication Adherence:</label>
-        <textarea type="text" name="medication_adherence" value={patient.medication_adherence || ""} onChange={handleChange} className="input-form textArea-size-md"/
-        >
+        <textarea type="text" name="medication_adherence" value={patient.medication_adherence || ""} onChange={handleChange} className="input-form textArea-size-md"
+        ></textarea>
         </div>
 <div className="form-row">  
         <label className="label-form">Consultation:</label>
