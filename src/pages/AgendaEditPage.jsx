@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import agendaService from "../services/agenda.service";
 import patientService from "../services/patients.service";
@@ -95,6 +95,9 @@ function AgendaEdit() {
   return (
     <div className="container">
       <Sidebar />
+      <Link to="/patients">
+        <Button change="black">Back</Button>
+      </Link>
 
       <h1>Edit Appointment</h1>
       {showDeleteConfirmation && (
@@ -201,6 +204,7 @@ function AgendaEdit() {
           onChange={handleChange}
           className="input-form input-size"
         />
+        <div className="patientCreate-btn">
         <Button disabled={loading} type="submit" change="green">
           Save
         </Button>
@@ -212,6 +216,7 @@ function AgendaEdit() {
         >
           Delete
         </Button>
+        </div>
         </div>
       </form>
     </div>

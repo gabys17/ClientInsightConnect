@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Link, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import patientsService from "../services/patients.service";
@@ -70,6 +70,9 @@ function PatientEditPage() {
 
   return (
     <div className="container">
+      <Link to="/patients">
+        <Button change="black">Back</Button>
+      </Link>
       <h1>Edit Patient</h1>
       <Sidebar />
 
