@@ -95,7 +95,7 @@ function AgendaEdit() {
   return (
     <div className="container">
       <Sidebar />
-      <Link to="/patients">
+      <Link to="/patients" className="backbutton">
         <Button change="black">Back</Button>
       </Link>
 
@@ -204,7 +204,7 @@ function AgendaEdit() {
           onChange={handleChange}
           className="input-form input-size"
         />
-        <div className="patientCreate-btn">
+        <div>
         <Button disabled={loading} type="submit" change="green">
           Save
         </Button>
