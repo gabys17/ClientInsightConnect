@@ -99,10 +99,10 @@ function PatientEditPage() {
 <form onSubmit={handleSubmit} className="form-container">
   <div className="form-row">
         <label className="label-form">Full Name:</label>
-        <input type="text" name="full_name" value={patient.full_name || ""} onChange={handleChange} className="input-form inpput size"/>
+        <input type="text" name="full_name" value={patient.full_name || ""} onChange={handleChange} className="input-form input-size"/>
 
         <label className="label-form">Birth date:</label>
-        <input type="date" name="date_of_birth" value={patient.date_of_birth || ""} onChange={handleChange} className="input-form inpput size"/>
+        <input type="date" name="date_of_birth" value={patient.date_of_birth || ""} onChange={handleChange} className="input-form input-size"/>
 
         <label className="label-form">Age:</label>
         <input type="number" name="age" value={patient.age || ""} onChange={handleChange} className="input-form input size"/>

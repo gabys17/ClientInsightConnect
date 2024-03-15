@@ -120,9 +120,10 @@ function AgendaEdit() {
       )}
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 gap-4 mt-6 px-4"
+        className="form-container"
       >
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <div className="form-row">
+        <label className="label-form">
           Title:
         </label>
         <input
@@ -130,9 +131,9 @@ function AgendaEdit() {
           name="title"
           value={agenda.title || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Description:
         </label>
         <input
@@ -140,16 +141,16 @@ function AgendaEdit() {
           name="description"
           value={agenda.description || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Owner:
         </label>
         <select
           name="owner"
           value={agenda.owner || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         >
           <option value="">Select an owner</option>
           {doctors.map((doctor) => (
@@ -158,7 +159,7 @@ function AgendaEdit() {
             </option>
           ))}
         </select>
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Participants:
         </label>
         <select
@@ -169,7 +170,7 @@ function AgendaEdit() {
               : ""
           }
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         >
           <option value="">Select a participant</option>
           {patients.map((patient) => (
@@ -178,7 +179,9 @@ function AgendaEdit() {
             </option>
           ))}
         </select>
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        </div>
+        <div>
+        <label className="label-form">
           Start time:
         </label>
         <input
@@ -186,9 +189,9 @@ function AgendaEdit() {
           name="start_time"
           value={agenda.start_time || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           End time:
         </label>
         <input
@@ -196,7 +199,7 @@ function AgendaEdit() {
           name="end_time"
           value={agenda.end_time || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
         <Button disabled={loading} type="submit" change="green">
           Save
@@ -209,6 +212,7 @@ function AgendaEdit() {
         >
           Delete
         </Button>
+        </div>
       </form>
     </div>
   );

@@ -41,9 +41,9 @@ function AgendaDetails() {
     return participantObject ? participantObject.full_name : "Unknown";
   });
   return (
-    <div 
+    <div >
     <Sidebar />
-    className="agendaDetailsPage bg-gray-100 py-6 px-4">
+   
       <Link to="/agenda">
         <Button change="black">Back</Button>
       </Link>
