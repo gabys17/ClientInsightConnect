@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Patient from "../assets/patient.png"
 import Calendar from "../assets/timetable.png"
-import Todo from "../assets/to-do-list.png"
+import Pills from "../assets/pills.png"
 import Mood from "../assets/mood.png"
 import Sidebar from "../components/Sidebar";
 
@@ -23,8 +23,8 @@ function HomePage() {
 		<Link to="/agenda">
 			<div className="container-card">
 				<div className="card-body">
-					<h2 className="card-title">To-do</h2>
-					<img src={Todo} alt="to-do icon" />
+					<h2 className="card-title">Prescriptions</h2>
+					<img src={Pills} alt="prescription icon" />
 				</div>
 			</div>
 		</Link>
