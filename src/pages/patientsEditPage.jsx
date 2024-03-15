@@ -68,13 +68,10 @@ function PatientEditPage() {
 
 
   return (
-    <div className="p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto bg-white">
-      <h3 className="text-2xl font-semibold text-gray-700 mb-6">Edit Patient</h3>
+    <div className="container">
+      <h1>Edit Patient</h1>
 
       {showDeleteConfirmation && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
-          <div className="bg-black opacity-50 absolute w-full h-full"></div>
-
           <div className="bg-white w-96 p-6 rounded-lg z-10 shadow-xl relative">
             <p className="text-lg mb-6 text-gray-700 font-semibold">
               Are you sure you want to delete this patient?
@@ -95,41 +92,46 @@ function PatientEditPage() {
               </Button>
             </div>
           </div>
-        </div>
       )}
 
-<form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 mt-6 px-4">
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Full Name:</label>
-        <input type="text" name="full_name" value={patient.full_name || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+<form onSubmit={handleSubmit} className="form-container">
+  <div className="form-row">
+        <label className="label-form">Full Name:</label>
+        <input type="text" name="full_name" value={patient.full_name || ""} onChange={handleChange} className="input-form inpput size"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Birth date:</label>
-        <input type="date" name="date_of_birth" value={patient.date_of_birth || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="label-form">Birth date:</label>
+        <input type="date" name="date_of_birth" value={patient.date_of_birth || ""} onChange={handleChange} className="input-form inpput size"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Age:</label>
-        <input type="number" name="age" value={patient.age || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="label-form">Age:</label>
+        <input type="number" name="age" value={patient.age || ""} onChange={handleChange} className="input-form input size"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Insurance:</label>
-        <input type="number" name="insurance_number" value={patient.insurance_number || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="label-form">Insurance:</label>
+        <input type="number" name="insurance_number" value={patient.insurance_number || ""} onChange={handleChange} className="input-form input size"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Id:</label>
-        <input type="text" name="national_id_number" value={patient.national_id_number || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-      
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Pathology History:</label>
-        <textarea type="text" name="pathology_history" value={patient.pathology_history || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="label-form">Id:</label>
+        <input type="text" name="national_id_number" value={patient.national_id_number || ""} onChange={handleChange} className="input-form input size"/>
+        </div>
+      <div className="form-row">
+        <label className="label-form">Pathology History:</label>
+        <textarea type="text" name="pathology_history" 
+        value={patient.pathology_history || ""} onChange={handleChange} className="input-form textArea-size-md"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Medication Adherence:</label>
-        <textarea type="text" name="medication_adherence" value={patient.medication_adherence || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
+        <label className="label-form">Medication Adherence:</label>
+        <textarea type="text" name="medication_adherence" value={patient.medication_adherence || ""} onChange={handleChange} className="input-form textArea-size-md"/
+        >
+        </div>
+<div className="form-row">  
+        <label className="label-form">Consultation:</label>
+        <textarea type="text" name="consultation" value={patient.consultation || ""} onChange={handleChange} className="input-form textArea-size-lg"/>
+        </div>
+<div className="form-row">
+        <label className="label-form">Treatments recommendations:</label>
+        <textarea type="text" name="treatments_recommendations" value={patient.treatments_recommendations || ""} onChange={handleChange} className="input-form textArea-size-md"/>
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Consultation:</label>
-        <textarea type="text" name="consultation" value={patient.consultation || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Treatments recommendations:</label>
-        <textarea type="text" name="treatments_recommendations" value={patient.treatments_recommendations || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">Possible Diagnose:</label>
-        <textarea type="text" name="possible_diagnose" value={patient.possible_diagnose || ""} onChange={handleChange} className="border rounded p-2 w-full mb-6"/>
-
-
+        <label className="label-form">Possible Diagnose:</label>
+        <textarea type="text" name="possible_diagnose" value={patient.possible_diagnose || ""} onChange={handleChange} className="input-form textArea-size-md"/>
+        </div>
+        <div className="patientCreate-btn">
         <Button
           disabled={loading}
           type="submit"
@@ -145,6 +147,7 @@ function PatientEditPage() {
         >
           Delete
         </Button>
+        </div>
       </form>
     </div>
   );
