@@ -24,7 +24,7 @@ function HomePage() {
 			<div className="container-card">
 				<div className="card-body">
 					<h2 className="card-title">Prescriptions</h2>
-					<img id="size-prescription" src={Pills} alt="prescription icon" />
+					<img className="size-prescription" src={Pills} alt="prescription icon" />
 				</div>
 			</div>
 		</Link>
