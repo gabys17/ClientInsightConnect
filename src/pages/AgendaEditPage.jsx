@@ -95,7 +95,7 @@ function AgendaEdit() {
   return (
     <div className="container">
       <Sidebar />
-      <Link to="/patients" className="backbutton">
+      <Link to="/agenda" className="backbutton">
         <Button change="black">Back</Button>
       </Link>
 
