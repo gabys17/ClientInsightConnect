@@ -82,7 +82,7 @@ function PatientEditPage() {
               Are you sure you want to delete this patient?
             </p>
 
-            <div className="flex justify-end space-x-4">
+            <div className="hi">
               <Button
                 onClick={handleDelete}
                 change="green"
