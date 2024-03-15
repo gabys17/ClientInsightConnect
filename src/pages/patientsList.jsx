@@ -16,46 +16,46 @@ function PatientsList() {
       .catch((error) => console.log(error));
   }, []);
 
-  
+
 
   return (
-    <div className="container">
+    <div className="containerO">
       <Sidebar />
 
       <Link to="/home">
         <Button change="black">Back</Button>
       </Link>
-      
+
       <Link to="/patients/create">
         <Button change="blue">Add new patient</Button>
       </Link>
-  
+
       {patients &&
         patients.map((patient) => (
-          <div className="patient-container" key={patient.id}>
+          <div className="patient-containerO" key={patient.id}>
             <div>
-              <div className="patient-info" >
-                <Link  to={`/patients/${patient._id}`}>
-                  <span style={{ flexBasis: "20%" }}>{patient.full_name}</span>
+              <div className="patient-infoO" >
+                <Link to={`/patients/${patient._id}`}>
+                  <div >{patient.full_name}</div>
                 </Link>
-                <span style={{ flexBasis: "5%" }}>{patient.date_of_birth}</span>
-                <span style={{ flexBasis: "5%" }}>{patient.age}</span>
-                <span style={{ flexBasis: "5%" }}>{patient.insurance_number}</span>
-                <span style={{ flexBasis: "5%" }}>{patient.national_id_number}</span>
-                <span style={{ flexBasis: "10%" }}>{patient.pathology_history}</span>
-                <span style={{ flexBasis: "10%" }}>{patient.medication_adherence}</span>
-                <span style={{ flexBasis: "10%" }}>{patient.consultation}</span>
-                <span style={{ flexBasis: "10%" }}>{patient.treatments_recommendations}</span>
-                <span style={{ flexBasis: "10%" }}>{patient.possible_diagnose}</span>
+                <div className="patient-innerInfo">{patient.date_of_birth}</div>
+                <div className="patient-innerInfo">{patient.age}</div>
+                <div className="patient-innerInfo">{patient.insurance_number}</div>
+                <div className="patient-innerInfo">{patient.national_id_number}</div>
+                <div className="patient-innerInfo">{patient.pathology_history}</div>
+                <div className="patient-innerInfo">{patient.medication_adherence}</div>
+                <div className="patient-innerInfo">{patient.consultation}</div>
+                <div className="patient-innerInfo">{patient.treatments_recommendations}</div>
+                <div className="patient-innerInfo">{patient.possible_diagnose}</div>
               </div>
-              <span style={{ flexBasis: "30%" }}>
+              <div className="patient-innerInfo">
                 {patient.past_consultations.map((consultation, index) => (
-                  <span key={index}>
+                  <div key={index}>
                     {consultation.date} {consultation.consultation_info}{" "}
                     {consultation.treatments_recommendations}
-                  </span>
+                  </div>
                 ))}
-              </span>
+              </div>
             </div>
           </div>
         ))}

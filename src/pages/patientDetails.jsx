@@ -3,10 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "../components/Button";
 import patientsService from "../services/patients.service";
-import Sidebar from "../components/Sidebar";
-
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
+const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function PatientDetails() {
   const [patient, setPatient] = useState(null);
@@ -15,7 +14,7 @@ function PatientDetails() {
 
   const getPatient = () => {
     axios
-      .get(`${import.meta.env.VITE_SERVER_URL}/api/patients/${id}`)
+      .get(`${API_URL}/api/patients/${id}`)
       .then((response) => {
         const onePatient = response.data;
         setPatient(onePatient);
@@ -25,73 +24,72 @@ function PatientDetails() {
   };
 
   useEffect(() => {
-    patientsService.getPatient(id).then((response)=>{
+    patientsService.getPatient(id).then((response) => {
       setPatient(response.data);
       setLoading(false);
+      console.log(response)
     })
   }, [id]);
 
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="patientDetailsPage bg-gray-100 py-6 px-4">
-      <Sidebar />
-
+    <div className="containera ">
       <Link to="/patients">
         <Button change="black">Back</Button>
       </Link>
-      <div className="bg-white p-8 rounded-lg shadow-md mb-6">
+      <div>
         {patient && (
           <>
-            <h1 className="text-2xl mt-4 font-bold absolute">
-              {patient.full_name}
-            </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24 mb-4 border-b pb-4">
-              <p className="text-left mb-2 border-b pb-2">
+            <p>
+              <strong>Name:</strong>{patient.full_name}
+            </p>
+            <div>
+              <p>
                 <strong>Birth-date:</strong> {patient.date_of_birth}
               </p>
-              <p className="mb-2 text-left">
+              <p>
                 <strong>Age:</strong> {patient.age}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Insurance Number:</strong> {patient.insurance_number}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Id Number:</strong> {patient.national_id_number}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Pathology History:</strong> {patient.pathology_history}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Medication:</strong> {patient.medication_adherence}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Consultation:</strong> {patient.consultation}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Treatment Recommendations:</strong>{" "}
                 {patient.treatments_recommendations}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Possible Diagnose:</strong> {patient.possible_diagnose}
               </p>
-              <p className="text-left mb-2 border-b pb-2">
+              <p>
                 <strong>Past Consultations:</strong>
                 {/* You need to define these variables */}
-                {patient.past_consultations.map((consultation)=>{
+                {patient.past_consultations.map((consultation) => {
                   <strong>Date:</strong>
-                  {consultation.date}
+                  { consultation.date }
                   <strong>Consultation Info:</strong>
-                  {consultation.consultation_info}
+                  { consultation.consultation_info }
                   <strong>Treatment Recommendations:</strong>
-                  {consultation.treatments_recommendations}
+                  { consultation.treatments_recommendations }
                 })}
               </p>
             </div>
-            <div className="mt-4">
-            <Link to={`/patients/edit/${id}`}><Button change="blue">
-                  Edit patient
-                </Button>
+            <div>
+              <Link to={`/patients/edit/${id}`}><Button change="blue">
+                Edit patient
+              </Button>
               </Link>
             </div>
           </>

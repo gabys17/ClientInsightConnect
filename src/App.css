@@ -13,6 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
 .footer-container{
@@ -30,6 +31,7 @@
   align-items: center;
   justify-content: center;
   bottom: 0;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 .footer svg{
   margin-right: 10px;
@@ -54,6 +56,7 @@
     align-items: center;
     margin: 20px;
     border-radius: 8px;
+    font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
 .card-body h2{
@@ -67,6 +70,7 @@
   align-items: center;
   margin: 10px;
   padding: 10px;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
 .about{
@@ -95,6 +99,7 @@
   align-items: center;
   margin: 10px;
   padding: 10px;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
  .container-text svg{
@@ -113,6 +118,7 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
 .label-form{
@@ -187,6 +193,7 @@ option{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
 .patient-info{
@@ -199,6 +206,7 @@ option{
   border: 1px solid lightgray;
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
 .sidebar {
@@ -209,6 +217,7 @@ option{
   width: 240px;
   z-index: 100;
   transition: width 0.3s ease-in-out;
+  font-family: 'Josefin Sans' 'Times New Roman', Times, serif;
 }
 
 .sidebar.expanded {
@@ -319,4 +328,147 @@ option{
 .backbutton{
   margin-left: 1000px;
 
+}
+
+.containera {
+  position: relative;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.containera p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.containera strong {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #555555;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.patient-info {
+  margin-bottom: 20px;
+}
+
+.patient-info p {
+  margin-bottom: 8px;
+}
+
+.patient-info strong {
+  color: #007bff;
+}
+
+.consultation {
+  margin-bottom: 20px;
+}
+
+.consultation p {
+  margin-bottom: 8px;
+}
+
+.consultation strong {
+  color: #007bff;
+}
+
+.containerO {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  /* Buttons on top, grid below */
+  gap: 20px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-container .button {
+  margin-right: 10px;
+}
+
+.patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.patient-containerO {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.patient-containerO:hover {
+  transform: translateY(-5px);
+}
+
+.patient-infoO {
+  margin-bottom: 10px;
+}
+
+.patient-infoO>* {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.patient-infoO strong {
+  font-weight: bold;
+  color: #333333;
+}
+
+.past-consultations {
+  margin-top: 10px;
+}
+
+.past-consultations>span {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.patient-innerInfo {
+  margin: 5px;
 }

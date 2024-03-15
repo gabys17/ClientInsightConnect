@@ -13,14 +13,14 @@ function Sidebar() {
             <div className="sidebar-container" style={{ backgroundColor: '#E1D6E7' }}>
                 {isOpen && (
                     <div className="sidebar-content">
-                        <h2 className="sidebar-title">InsightConnect</h2>
+                        <Link to="/home"><h2 className="sidebar-title">InsightConnect</h2></Link>
                         <div className="links-container" style={{ backgroundColor: '#F3F5F9' }}>
                             <ul className="sidebar-menu">
                                 <li className="sidebar-item"><Link to="/patients" className="sidebar-link">Patients</Link></li>
                                 <li className="sidebar-item"><Link to="/agenda" className="sidebar-link">Appointments</Link></li>
-                                <li className="sidebar-item"><Link to="/errorpage" className="sidebar-link">TodoList</Link></li>
+                                <li className="sidebar-item"><Link to="/errorpage" className="sidebar-link">Prescriptions</Link></li>
                                 <li className="sidebar-item"><Link to="/errorpage" className="sidebar-link">Mood Tracker</Link></li>
-                                <li className="sidebar-item"><Link to="/errorpage" className="sidebar-link">About</Link></li>
+                                <li className="sidebar-item"><Link to="/about" className="sidebar-link">About</Link ></li>
                             </ul>
                         </div>
                     </div>
