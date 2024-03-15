@@ -65,17 +65,16 @@ function PatientEditPage() {
   }, [id]);
 
   return (
-    <div className="p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto bg-white">
-      <h3 className="text-2xl font-semibold text-gray-700 mb-6">
+    <div >
+      <h3 >
         Edit Patient
       </h3>
 
       {showDeleteConfirmation && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
-          <div className="bg-black opacity-50 absolute w-full h-full"></div>
+        <div >
 
-          <div className="bg-white w-96 p-6 rounded-lg z-10 shadow-xl relative">
-            <p className="text-lg mb-6 text-gray-700 font-semibold">
+          <div>
+            <p>  
               Are you sure you want to delete this patient?
             </p>
 
