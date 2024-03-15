@@ -472,3 +472,8 @@ option{
 .patient-innerInfo {
   margin: 5px;
 }
+
+.size-prescription{
+  width: 100px;
+  height: 100px;
+}
