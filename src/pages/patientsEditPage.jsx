@@ -65,7 +65,7 @@ function PatientEditPage() {
   }, [id]);
 
   return (
-    <div >
+    <div className="container">
       <h3 >
         Edit Patient
       </h3>
@@ -95,9 +95,9 @@ function PatientEditPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 gap-4 mt-6 px-4"
+        className="form-row"
       >
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Full Name:
         </label>
         <input
@@ -105,10 +105,10 @@ function PatientEditPage() {
           name="full_name"
           value={patient.full_name || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Birth date:
         </label>
         <input
@@ -116,10 +116,10 @@ function PatientEditPage() {
           name="date_of_birth"
           value={patient.date_of_birth || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Age:
         </label>
         <input
@@ -127,10 +127,10 @@ function PatientEditPage() {
           name="age"
           value={patient.age || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Insurance:
         </label>
         <input
@@ -138,10 +138,10 @@ function PatientEditPage() {
           name="insurance_number"
           value={patient.insurance_number || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Id:
         </label>
         <input
@@ -149,10 +149,10 @@ function PatientEditPage() {
           name="national_id_number"
           value={patient.national_id_number || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Pathology History:
         </label>
         <textarea
@@ -160,10 +160,10 @@ function PatientEditPage() {
           name="pathology_history"
           value={patient.pathology_history || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Medication Adherence:
         </label>
         <textarea
@@ -171,10 +171,10 @@ function PatientEditPage() {
           name="medication_adherence"
           value={patient.medication_adherence || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Consultation:
         </label>
         <textarea
@@ -182,10 +182,10 @@ function PatientEditPage() {
           name="consultation"
           value={patient.consultation || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Treatments recommendations:
         </label>
         <textarea
@@ -193,10 +193,10 @@ function PatientEditPage() {
           name="treatments_recommendations"
           value={patient.treatments_recommendations || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
-        <label className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold">
+        <label className="label-form">
           Possible Diagnose:
         </label>
         <textarea
@@ -204,7 +204,7 @@ function PatientEditPage() {
           name="possible_diagnose"
           value={patient.possible_diagnose || ""}
           onChange={handleChange}
-          className="border rounded p-2 w-full mb-6"
+          className="input-form input-size"
         />
 
         <Button disabled={loading} type="submit" change="green">
