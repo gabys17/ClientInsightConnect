@@ -178,3 +178,137 @@ option{
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.patient-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.patient-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 240px;
+  z-index: 100;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar.expanded {
+  width: 250px;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar-container {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.sidebar-content {
+  padding: 20px;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Josefin sans;
+  text-align: center;
+}
+
+.sidebar.expanded .sidebar-content {
+  opacity: 1;
+}
+
+.sidebar.collapsed .sidebar-content {
+  opacity: 0;
+}
+
+.links-container {
+  background-color: #F3F5F9;
+  padding: 20px;
+  /* Increase padding top and bottom */
+  border-radius: 10px;
+  width: 170px;
+  height: 200px;
+  line-height: 25px;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 10;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Josefin sans;
+}
+
+.sidebar-item {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+  margin-bottom: 20px;
+  /* Increase the margin bottom to space out the links more */
+}
+
+.sidebar-link:hover {
+  color: #9F5DE2;
+  /* Hover color */
+}
+
+.sidebar-toggle-container {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  /* Adjust as needed */
+  width: 40px;
+  height: 203px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-toggle-button {
+  width: 30px;
+  height: 30px;
+  background-color: #F3F5F9;
+  /* Button background color */
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.sidebar-toggle-button:hover {
+  background-color: #DDD;
+  /* Hover color */
+}
+
+.sidebar-toggle-button svg {
+  fill: #333;
+  /* Icon color */
+}

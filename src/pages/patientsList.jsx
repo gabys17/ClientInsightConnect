@@ -19,7 +19,7 @@ function PatientsList() {
   
 
   return (
-    <div>
+    <div className="container">
       <Link to="/home">
         <Button change="black">Back</Button>
       </Link>
